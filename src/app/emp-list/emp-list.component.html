@@ -1,0 +1,37 @@
+<!-- <ul *ngFor="let emp of data">
+    <li>FirstName : {{emp.firstName}} LastName: {{emp.lastName}}</li>
+</ul> -->
+<h3>Employee List</h3>
+<div>
+    <mat-table [dataSource]="employeeSource">
+        <ng-container matColumnDef="firstName">
+            <mat-header-cell *matHeaderCellDef> FirstName </mat-header-cell>
+            <mat-cell *matCellDef="let emp"> {{emp.firstName}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="lastName">
+            <mat-header-cell *matHeaderCellDef> LastName </mat-header-cell>
+            <mat-cell *matCellDef="let emp"> {{emp.lastName}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="gender">
+            <mat-header-cell *matHeaderCellDef> Gender </mat-header-cell>
+            <mat-cell *matCellDef="let emp"> {{emp.gender}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="dateOfBirth">
+            <mat-header-cell *matHeaderCellDef> DateOfBirth </mat-header-cell>
+            <mat-cell *matCellDef="let emp"> {{emp.dateOfBirth}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="department">
+            <mat-header-cell *matHeaderCellDef> Department </mat-header-cell>
+            <mat-cell *matCellDef="let emp"> {{emp.department}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="delete">
+            <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+            <mat-cell *matCellDef="let emp"> {{emp.delete}} </mat-cell>
+            <button mat-icon-button color="warn" (click)="deleteEmployee(emp._id)">
+                <mat-icon class="mat-18">delete</mat-icon>
+            </button>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>
